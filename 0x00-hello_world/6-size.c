@@ -1,8 +1,8 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
- * main - a program to print the size of various type
- * return : 0 for success
+ * main - a program to print a line using printf functioin
+ * Return: 0 (Success)
  */
 
 int main(void)
