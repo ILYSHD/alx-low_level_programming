@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 
 /**
  * main - a program to print a line using printf functioin
@@ -20,7 +21,7 @@ int main(void)
 		printf("%d is positive\n", n);
 	} else
 	{
-		print("%d is zero\n", n);
+		printf("%d is zero\n", n);
 	}
 	return (0);
 }
