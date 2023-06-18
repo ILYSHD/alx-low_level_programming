@@ -7,14 +7,14 @@
 
 int main(void)
 {
-	int d;
+	int d = 48;
 
-	for (d = 48; d <= 56; ++d)
+	for (d = 49; d <= 57; ++d)
 	{
-		putchar(d);
 		putchar(',');
 		putchar(' ');
+		putchar(d);
 	}
-	putchar(57);
+	putchar('$');
 	return (0);
 }
