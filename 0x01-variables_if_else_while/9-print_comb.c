@@ -7,14 +7,18 @@
 
 int main(void)
 {
-	int d = 48;
+	int d;
 
-	for (d = 49; d <= 57; ++d)
+	for (d = 48; d <= 57; ++d)
 	{
+		putchar(d);
+		if (d == 57)
+		{
+			continue;
+		}
 		putchar(',');
 		putchar(' ');
-		putchar(d);
 	}
-	putchar('$');
+	putchar('\n');
 	return (0);
 }
