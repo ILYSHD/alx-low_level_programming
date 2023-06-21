@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_alphabet - a program to print all the alphabet in lower case 10times
+ * print_alphabet_x10 - a program to print all the alphabet 10times
  * Return: 0 (Success)
  */
 
-void print_alphabet(void)
+void print_alphabet_x10(void)
 {
 	char c;
 	int i;
