@@ -6,21 +6,17 @@
  * Return: 0 or 1 (Success)
  */
 
-int _islower(char c)
+int _islower(int c)
 {
-	char a;
 	int result;
 
-	for (a = 'a'; a <= 'z'; ++a)
+	if (c >= 97 && c <= 122)
 	{
-		if (c == a)
-		{
-			result = 1;
-		}
-		else
-		{
-			result = 0;
-		}
+		result = 1;
 	}
-	return (result);
+	else
+	{
+		result = 0;
+	}
+	return result;
 }
