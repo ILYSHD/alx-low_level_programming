@@ -11,5 +11,6 @@ int print_last_digit(int n)
 	unsigned result;
 
 	result = n % 10;
+	_putchar(result + 48);
 	return (result);
 }
