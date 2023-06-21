@@ -8,7 +8,7 @@
 
 int print_last_digit(int n)
 {
-	int result;
+	unsigned result;
 
 	result = n % 10;
 	return (result);
