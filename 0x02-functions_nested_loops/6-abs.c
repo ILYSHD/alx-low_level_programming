@@ -12,13 +12,13 @@ int _abs(int n)
 	int result;
 
 	v = print_sign(n);
-	if (v == 1)
+	if (n <= 0)
 	{
-		result = n;
+		result = -n;
 	}
 	else
 	{
-		result = -n;
+		result = n;
 	}
 	return (result);
 }
