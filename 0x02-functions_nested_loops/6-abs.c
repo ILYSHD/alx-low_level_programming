@@ -8,10 +8,8 @@
 
 int _abs(int n)
 {
-	int v;
 	int result;
 
-	v = print_sign(n);
 	if (n <= 0)
 	{
 		result = -n;
