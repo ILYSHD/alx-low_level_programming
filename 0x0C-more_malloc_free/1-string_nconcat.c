@@ -1,6 +1,26 @@
 #include "main.h"
 #include <stdlib.h>
 /**
+ * _min - function
+ * @a: parametre
+ * @b: parametre
+ *Return: min
+ */
+unsigned int _min(unsigned int a, unsigned int b)
+{
+	unsigned int result;
+
+	if (a < b)
+	{
+		result = a;
+	}
+	else
+	{
+		result = b;
+	}
+	return (result);
+}
+/**
  * _strlen - function
  *@s: parametre
  *Return: length
@@ -40,7 +60,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
-	s = malloc(len1 * sizeof(char) + len2 * sizeof(*s2) + 1);
+	s = malloc(len1 * sizeof(char) + _min(len2, n) * sizeof(*s2) + 1);
 	if (s == NULL)
 	{
 		return (NULL);
