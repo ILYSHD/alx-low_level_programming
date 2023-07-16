@@ -71,21 +71,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		{
 			s[i] = s1[i];
 		}
-		if (n >= len2)
+		for (j = 0; j < _min(len2, n); j++)
 		{
-			for (j = 0; j < len2; j++)
-			{
-				s[i] = s2[j];
-				i++;
-			}
-		}
-		else
-		{
-			for (j = 0; j < n; ++j)
-			{
-				s[i] = s2[j];
-				i++;
-			}
+			s[i] = s2[j];
+			i++;
 		}
 		s[i] = '\0';
 		return (s);
