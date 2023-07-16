@@ -17,21 +17,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	else
+	taill = nmemb * size;
+	m = malloc(taill);
+	if (m == NULL)
 	{
-		taill = nmemb * size;
-		m = malloc(taill);
-		if(m == NULL)
-		{
-			return (NULL);
-		}
-		else
-		{
-			for (i = 0; i < taill; ++i)
-			{
-				m[i] = 48;
-			}
-			return (m);
-		}
+		return (NULL);
 	}
+	for (i = 0; i < taill; ++i)
+	{
+		m[i] = '0';
+	}
+	return (m);
 }
