@@ -1,47 +1,93 @@
 #include "main.h"
 #include <stdlib.h>
-
 /**
- * *_memset - fills memory with a constant byte
- * @s: memory area to be filled
- * @b: char to copy
- * @n: number of times to copy b
- *
- * Return: pointer to the memory area s
+ * _min - function
+ * @a: parametre
+ * @b: parametre
+ *Return: min
  */
-char *_memset(char *s, char b, unsigned int n)
+unsigned int _min(unsigned int a, unsigned int b)
 {
-	unsigned int i;
+	unsigned int result;
 
-	for (i = 0; i < n; i++)
+	if (a < b)
 	{
-		s[i] = b;
+		result = a;
 	}
+	else
+	{
+		result = b;
+	}
+	return (result);
+}
+/**
+ * _strlen - function
+ *@s: parametre
+ *Return: length
+ */
 
-	return (s);
+unsigned int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len = len + 1;
+		s = s + 1;
+	}
+	return (len);
 }
 
 /**
- * *_calloc - allocates memory for an array
- * @nmemb: number of elements in the array
- * @size: size of each element
- *
- * Return: pointer to allocated memory
+ * string_nconcat - function
+ * @s1: parametre
+ * @s2: parametre
+ * @n: parametre
+ *Return: pointer
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr;
+	unsigned int len1 = 0, len2 = 0, i = 0, j;
+	char *s;
 
-	if (nmemb == 0 || size == 0)
+	if (s1 == NULL)
+	{
+		s1 = "\0";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "\0";
+	}
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	s = malloc(len1 * sizeof(char) + _min(len2, n) * sizeof(*s2) + 1);
+	if (s == NULL)
+	{
 		return (NULL);
-
-	ptr = malloc(size * nmemb);
-
-	if (ptr == NULL)
-		return (NULL);
-
-	_memset(ptr, 0, nmemb * size);
-
-	return (ptr);
+	}
+	else
+	{
+		for (i = 0; i < len1; i++)
+		{
+			s[i] = s1[i];
+		}
+		if (n >= len2)
+		{
+			for (j = 0; j < len2; j++)
+			{
+				s[i] = s2[j];
+				i++;
+			}
+		}
+		else
+		{
+			for (j = 0; j < n; ++j)
+			{
+				s[i] = s2[j];
+				i++;
+			}
+		}
+		s[i] = '\0';
+		return (s);
+	}
 }
-
