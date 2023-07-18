@@ -1,6 +1,23 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
+ * _strlen - function
+ * @s: parametre
+ *Return: length
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+/**
  * new_dog - function
  * @name: parametre
  * @age: parametre
@@ -10,17 +27,30 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
+	int len1, len2, i, j;
 
-	d = malloc(sizeof(struct dog));
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
+	d = malloc(sizeof(dog_t));
 	if (d == NULL)
+		return (NULL);
+	d->name = malloc(len1 * sizeof(char) + 1);
+	if (d->name == NULL)
 	{
+		free(d);
 		return (NULL);
 	}
-	else
+	d->owner = malloc(len2 * sizeof(char) + 1);
+	if (d->owner == NULL)
 	{
-		d->name = name;
-		d->age = age;
-		d->owner = owner;
-		return (d);
+		free(d);
+		free(d->name);
+		return (NULL);
 	}
+	for (i = 0; i < len1; i++)
+		d->name[i] = name[i];
+	for (j = 0; j < len2; j++)
+		d->owner[j] = owner[j];
+	d->age = age;
+	return (d);
 }
