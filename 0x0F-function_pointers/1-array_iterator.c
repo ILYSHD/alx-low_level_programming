@@ -4,7 +4,7 @@
  * array_iterator - Function
  * @array: parametre
  * @size: parametre
- * @sction: function pointer
+ * @action: function pointer
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
