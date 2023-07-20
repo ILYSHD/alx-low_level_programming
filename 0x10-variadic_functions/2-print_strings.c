@@ -6,6 +6,7 @@
  *print_strings - function
  *@separator: parametre
  *@n: parametre
+ *@...: variable number of strings to be printed
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
@@ -16,24 +17,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	if (n == 0)
 		return;
 	va_start(ap, n);
-	if (separator != NULL)
-	{
-		for (i = 0; i < n - 1; i++)
-		{	str = va_arg(ap, char *);
-			printf("%s", str ? str : "(nil)");
+	for (i = 0; i < n ; i++)
+	{	str = va_arg(ap, char *);
+		printf("%s", str ? str : "(nil)");
+		if (i != n - 1 && separator != NULL)
 			printf("%s", separator);
-		}
 	}
-	else
-	{
-		for (i = 0; i < n - 1; i++)
-		{
-			str = va_arg(ap, char *);
-			printf("%s", str ? str : "(nil)");
-		}
-	}
-	str = va_arg(ap, char *);
-	printf("%s", str ? str : "(nil)");
 	printf("\n");
 	va_end(ap);
 }
