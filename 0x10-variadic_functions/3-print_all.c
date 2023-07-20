@@ -9,10 +9,10 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	char *sep = """";
-	char *str;
+	char *str, *sep;
 	int i = 0;
 
+	*sep = "";
 	va_start(ap, format);
 	if (format)
 	{
