@@ -7,8 +7,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i, j = 0;
-	int number;
+	int i;
 	unsigned int value = 0;
 
 	if (b == NULL)
@@ -17,13 +16,7 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
-	}
-	number = _atoi(b);
-	while (number != 0)
-	{
-		value = value + (number % 10) * _pow_recursion(2, j);
-		j = j + 1;
-		number = number / 10;
+		value = 2 * value + (b[i] - '0');
 	}
 	return (value);
 }
