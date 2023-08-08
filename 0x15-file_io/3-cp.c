@@ -1,6 +1,22 @@
 #include "main.h"
 #include <stdio.h>
 /**
+ * close_file - Closes file descriptors.
+ * @fd: The file descriptor to be closed.
+ */
+void close_file(int fd)
+{
+	int c;
+
+	c = close(fd);
+
+	if (c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+/**
  * main - main function
  *@argc: parametre
  *@argv: parametre
@@ -8,7 +24,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int ofile_from, ofile_to, rfile_from, wfile_to, cfile_from, cfile_to;
+	int ofile_from, ofile_to, rfile_from, wfile_to;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -34,17 +50,7 @@ int main(int argc, char *argv[])
 		rfile_from = read(ofile_from, buffer, 1024);
 		ofile_to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (rfile_from > 0);
-	cfile_from = close(ofile_from);
-	cfile_to = close(ofile_to);
-	if (cfile_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ofile_from);
-		exit(100);
-	}
-	if (cfile_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ofile_to);
-		exit(100);
-	}
+	close_file(ofile_from);
+	close_file(ofile_to);
 	return (0);
 }
